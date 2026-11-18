@@ -18,17 +18,25 @@ public class Enemy : MonoBehaviour
     private int wayPointCount; //이동 경로 개수
     private int currentIndex = 0; //현재 목표지점 인덱스
     private EnemySpawner enemySpawner; //적의 삭제를 본인이 하지 않고 EnemySpawner에게 알려서 삭제
+    private float baseTimeOffset; 
 
     public Transform HUDPoint => hudPoint;
+    public float TimeOffset
+    {
+        get => timeOffset;
+        set => timeOffset = Mathf.Min(value, 5.0f); //타일 한 칸 이동에 최대 5초가 걸리도록 설정
+    }
 
 
     public void Setup(EnemySpawner enemySpawner, Transform[] wayPoints)
     {
+        baseTimeOffset = timeOffset;
         //적을 생성한 EnemySpawner 저장
         this.enemySpawner = enemySpawner;
 
         //적 이동 경로(WayPoints) 정보 설정
         wayPointCount = wayPoints.Length;
+        this.wayPoints = new Transform[wayPointCount];
         this.wayPoints = wayPoints;
 
         //적 위치를 첫 번째 wayPoint 위치로 설정
@@ -77,6 +85,11 @@ public class Enemy : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void ResetTimeOffset()
+    {
+        timeOffset = baseTimeOffset;
     }
 
     public void OnDie(EnemyDestroyType type)

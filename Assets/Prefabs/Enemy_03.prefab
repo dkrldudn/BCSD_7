@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4336085431606202234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HUDPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874492980867561337}
   - component: {fileID: 6252828607009028199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 7858984777363137762}
   - component: {fileID: -4339729824203796716}
   - component: {fileID: -5834097010647979844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_03
   m_TagString: Enemy
   m_Icon: {fileID: 0}
